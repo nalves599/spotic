@@ -1,0 +1,24 @@
+{
+  "name": "SpoTIC",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon src/App.js",
+    "start": "node src/App.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "ffmetadata": "^1.6.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "mongoose": "^5.9.2",
+    "querystring": "^0.2.0",
+    "yt-search": "^1.1.2",
+    "ytdl-core": "^2.0.0"
+  }
+}

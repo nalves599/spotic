@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Spotic</title>
+</head>
+
+<body>
+    <div id="definitions-container">
+        <h2>Settings</h2>
+        <div class="form-group">
+            <label for="directory">Directory</label>
+            <input type="text" placeholder="./musics" id="directory" />
+        </div>
+
+        <div class="form-group form-check">
+            <input type="checkbox" id="itunes" />
+            <label for="itunes">Itunes</label>
+        </div>
+        <button id="save">Save</button>
+    </div>
+
+    <div id="login-container">
+        <a id="login-button" class="button" href="/login"><i class="fa fa-spotify"></i>Login Spotic</a>
+        <a id="definitions"><i class="fa fa-cog"></i>Settings</a>
+    </div>
+    <div id="logged-in-container">
+        <div class="hide" id="first-step">
+            <h1>Playlists</h1>
+            <div id="playlists">
+            </div>
+            <button id="submit-playlist">Submit</button>
+        </div>
+        <div class="hide" id="second-step">
+            <div id="footer">
+                <div id="information">
+                    <p id="playlist-name">PlayList: </p>
+                    <p id="total">Total: </p>
+                </div>
+                <button id="download-playlist-sm" class="small"><i class="fa fa-download"></i></button>
+                <button id="download-playlist-lg" class="large"><i class="fa fa-download"></i>Download Playlist</button>
+            </div>
+            <div id="musics">
+            </div>
+            <button id="next" value="">Show More...</button>
+        </div>
+    </div>
+</body>
+
+</html>
