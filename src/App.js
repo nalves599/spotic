@@ -4,7 +4,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const port = 8085;
 
-mongoose.connect('mongodb+srv://<username>:<password>123@<db>.mongodb.net/<schema>?retryWrites=true&w=majority',{
+require('dotenv').config();
+
+mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_DATABASE}.mongodb.net/${process.env.MONGO_DB_SCHEMA}?retryWrites=true&w=majority`,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

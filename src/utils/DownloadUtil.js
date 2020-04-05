@@ -4,6 +4,10 @@ const ytdl = require('ytdl-core');
 const ff = require('fluent-ffmpeg');
 const ffm = require('ffmetadata');
 
+const ffmpegPath = __dirname + "\\ffmpeg.exe";
+// ff.setFfmpegPath(ffmpegPath);
+
+
 
 module.exports = {
     download: async function (yt_id, directory, name, artist, album) {
@@ -18,10 +22,12 @@ module.exports = {
 
 
         return new Promise((resolve, reject) => {
-            ytdl('http://www.youtube.com/' + yt_id)
+            ytdl('http://www.youtube.com/watch?v=' + yt_id)
                 .pipe(fs.createWriteStream(musicPathTemp)).on('close', () => {
+                    console.log('Closed Stream ' +  musicPath);
                     new ff({ source: musicPathTemp })
                         .on('end', () => {
+                            console.log('End stream');
                             try {
                                 fs.unlinkSync(musicPathTemp);
 
@@ -33,13 +39,13 @@ module.exports = {
 
                                 ffm.write(musicPath, data, function (err) {
                                     if (err) {
-                                        resolve(-1);
+                                        return resolve(-1);
                                     }
                                     console.log(`Downloaded ${name} | Path: ${musicPath}`);
-                                    resolve(1);
+                                    return resolve(1);
                                 });
                             } catch{
-                                resolve(-1);
+                                return resolve(-1);
                             }
                         })
                         .saveToFile(musicPath);
